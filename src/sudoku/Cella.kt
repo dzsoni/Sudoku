@@ -10,11 +10,12 @@ class Cella {
     }
     fun getPossibleNumbers():MutableSet<Int>        = listOfPossibleNumbers.toMutableSet()  // copy
     fun removePossibleNumber(value: Int):Boolean    = listOfPossibleNumbers.remove(value)
-    fun addPossibleNumber(value: Int):Boolean {
+    fun addPossibleNumber(value: Int){
         if (value>0 && value <10) {
-            return (listOfPossibleNumbers.add(value))
+            listOfPossibleNumbers.add(value)
+            listOfPossibleNumbers=listOfPossibleNumbers.toSortedSet()
         }
-        else return false
+
     }
      fun removePossibleNumbersWithList( list: MutableSet<Int>) = listOfPossibleNumbers.removeAll(list)
      fun addPossibleNumbersWithList (list: MutableSet<Int>) {
