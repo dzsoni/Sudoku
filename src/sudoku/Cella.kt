@@ -1,6 +1,5 @@
 package sudoku
 
-import java.util.*
 
 class Cella {
     private var listOfPossibleNumbers: MutableSet<Int>  = mutableSetOf(1,2,3,4,5,6,7,8,9) //A cellába mégírható lehetséges számok
