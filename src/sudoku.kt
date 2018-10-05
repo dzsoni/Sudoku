@@ -13,15 +13,6 @@ fun main(args: Array<String>) {
     r.forEach {print(it.getValue().toString())}
 
     println("")
-    var s = sT.getRefToColumn(1)!!
-    s.forEach { println(it.getValue().toString()) }
-
-
-    //copy of sT
-    println("")
-    var ss = copysT.getRefToColumn(1)!!
-    ss.forEach { println(it.getValue().toString()) }
-
-
-
+     var t = copysT.getRefToRow(0)!!
+     t.forEach {print(it.getValue().toString())}
     }

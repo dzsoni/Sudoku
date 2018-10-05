@@ -17,8 +17,7 @@ class SudokuTable () {
     constructor(original:SudokuTable):this(){
         for(r in 0..8){
             for(c in 0..8){
-                this.table[r][c].addPossibleNumbersWithList(mutableSetOf(1,2,3,4,5,6,7,8,9))
-                this.table[r][c].getPossibleNumbers().retainAll(original.table[r][c].getPossibleNumbers())
+                this.table[r][c].setPossibleNumbers(original.table[r][c].getPossibleNumbers())
             }
         }
     }

@@ -8,6 +8,9 @@ class Cella {
         listOfPossibleNumbers=listOfPossibleNumbers.toSortedSet()
     }
     fun getPossibleNumbers():MutableSet<Int>        = listOfPossibleNumbers.toMutableSet()  // copy
+    fun setPossibleNumbers(list:MutableSet<Int>){
+        listOfPossibleNumbers=list.toMutableSet()
+    }
     fun removePossibleNumber(value: Int):Boolean    = listOfPossibleNumbers.remove(value)
     fun removePossibleNumbersWithList( list: MutableSet<Int>) = listOfPossibleNumbers.removeAll(list)
     fun addPossibleNumber(value: Int){
