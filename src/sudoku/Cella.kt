@@ -9,14 +9,15 @@ class Cella {
     }
     fun getPossibleNumbers():MutableSet<Int>        = listOfPossibleNumbers.toMutableSet()  // copy
     fun removePossibleNumber(value: Int):Boolean    = listOfPossibleNumbers.remove(value)
+    fun removePossibleNumbersWithList( list: MutableSet<Int>) = listOfPossibleNumbers.removeAll(list)
     fun addPossibleNumber(value: Int){
-        if (value>0 && value <10) {
+        if (value in 1..9) {
             listOfPossibleNumbers.add(value)
             listOfPossibleNumbers=listOfPossibleNumbers.toSortedSet()
         }
 
     }
-     fun removePossibleNumbersWithList( list: MutableSet<Int>) = listOfPossibleNumbers.removeAll(list)
+
      fun addPossibleNumbersWithList (list: MutableSet<Int>) {
          var ok = true
          list.forEach { n->  if (n<1 || n>9) {ok=false}  }
@@ -25,8 +26,14 @@ class Cella {
          }
 
      }
-     fun setValue(value: Int):Unit{
-        if(value >0 && value <10) {
+    //Megtart
+    fun retainPossibelNumers ( list: MutableSet<Int>){
+        list.retainAll(mutableSetOf(1,2,3,4,5,6,7,8,9)) //Safety filtering
+        listOfPossibleNumbers.retainAll(list)
+    }
+    //---------------------------------
+     fun setValue(value: Int){
+        if(value in 1..9) {
             listOfPossibleNumbers.clear()
             listOfPossibleNumbers.add(value)
         }
@@ -36,10 +43,12 @@ class Cella {
         }
     }
      fun getValue():Int {
-         when (listOfPossibleNumbers.count()){
-             1 -> return listOfPossibleNumbers.first()
-             else ->{return 0}
+         return when (listOfPossibleNumbers.count()){
+             1 -> listOfPossibleNumbers.first()
+             else ->{0}
          }
 
      }
 }
+
+
