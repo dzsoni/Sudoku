@@ -1,10 +1,14 @@
 package sudoku
 
+import java.util.*
+
 class SudokuTable () {
     //Sudoku table
     var table = Array<Array<Cella>>(9) { Array<Cella>(9) { Cella() } }
 
-    private var colTable = Array<Array<Cella>>(9) {  Array<Cella>(9){ Cella() } }
+    private var colTable = Array<Array<Cella>>(9) { Array<Cella>(9){Cella()}}
+    var block = Array<Array<Cella>>( 3 ) { Array<Cella>(3){Cella()}}
+
 
     init{
         for (c in 0..8){
@@ -23,10 +27,14 @@ class SudokuTable () {
     }
 
     fun getRefToRow(row : Int):Array<Cella>?{
-        if (row <0 || row> table.size-1){
-            return null
-        }
+        if (row <0 || row> table.size-1){return null}
         return table[row]
+    }
+    fun getCopyOfRow(row :Int):Array<Cella>?{
+        if (row < 0 || row > table.size-1){return null}
+        var dest =  Array<Cella>(9) { Cella() }
+        table[row].forEachIndexed { index, cella -> dest[index].setPossibleNumbers(cella.getPossibleNumbers())  }
+        return dest
     }
     fun getRefToColumn(col:Int):Array<Cella>?{
         if (col<0 || col> colTable.size-1){
@@ -35,5 +43,10 @@ class SudokuTable () {
         return colTable[col]
     }
 
-
+    fun getCopyOfColumn(col :Int):Array<Cella>?{
+        if (col < 0 || col > table.size-1){return null}
+        var dest =  Array<Cella>(9) { Cella() }
+        colTable[col].forEachIndexed { index, cella -> dest[index].setPossibleNumbers(cella.getPossibleNumbers())  }
+        return dest
+    }
 }
