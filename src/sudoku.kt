@@ -1,4 +1,5 @@
 import sudoku.*
+import java.lang.NullPointerException
 
 
 fun main(args: Array<String>) {
@@ -7,11 +8,11 @@ fun main(args: Array<String>) {
 
     sT.table[0][1].setValue(4)
 
-    sT.getRefToColumn(1)!!.forEach { println(it.getValue().toString()) }
+    sT.getRefToColumn(2).forEach { println(it.getValue().toString())}
 
     var ccol = sT.getCopyOfColumn(1)
 
     sT.table[0][1].setValue(8)
-    ccol!!.forEach  {println(it.getValue().toString())}
+    ccol.forEach {println(it.getValue().toString())}
 
     }

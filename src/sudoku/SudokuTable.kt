@@ -26,25 +26,22 @@ class SudokuTable () {
         }
     }
 
-    fun getRefToRow(row : Int):Array<Cella>?{
-        if (row <0 || row> table.size-1){return null}
+    fun getRefToRow(row : Int):Array<Cella>{
+        require((row>=0 && row < table.size)) {"Az array határokon átléptél"}
         return table[row]
     }
-    fun getCopyOfRow(row :Int):Array<Cella>?{
-        if (row < 0 || row > table.size-1){return null}
+    fun getCopyOfRow(row :Int):Array<Cella>{
+        require((row>=0 && row < table.size)) {"Az array határokon átléptél"}
         var dest =  Array<Cella>(9) { Cella() }
         table[row].forEachIndexed { index, cella -> dest[index].setPossibleNumbers(cella.getPossibleNumbers())  }
         return dest
     }
-    fun getRefToColumn(col:Int):Array<Cella>?{
-        if (col<0 || col> colTable.size-1){
-            return null
-        }
+    fun getRefToColumn(col:Int):Array<Cella>{
+        require((col>=0 && col < table.size)) {"Az array határokon átléptél."}
         return colTable[col]
     }
-
-    fun getCopyOfColumn(col :Int):Array<Cella>?{
-        if (col < 0 || col > table.size-1){return null}
+    fun getCopyOfColumn(col :Int):Array<Cella>{
+        require((col>=0 && col < table.size)) {"Az array határokon átléptél."}
         var dest =  Array<Cella>(9) { Cella() }
         colTable[col].forEachIndexed { index, cella -> dest[index].setPossibleNumbers(cella.getPossibleNumbers())  }
         return dest
