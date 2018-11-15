@@ -23,7 +23,7 @@ class Cella {
 
      fun addPossibleNumbersWithList (list: MutableSet<Int>) {
          var ok = true
-         list.forEach { n->  if (n<1 || n>9) {ok=false}  }
+         list.forEach { if (it<1 || it>9) {ok=false}  }
          if (ok){
              listOfPossibleNumbers.addAll(list.toMutableSet())
          }

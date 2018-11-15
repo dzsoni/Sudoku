@@ -8,7 +8,7 @@ class SudokuTable () {
 
     private var colTable = Array<Array<Cella>>(9) { Array<Cella>(9){Cella()}}
     var block = Array<Array<Cella>>( 3 ) { Array<Cella>(3){Cella()}}
-
+    var k = Array<MutableSet<Int>>(3){ mutableSetOf<Int>()}
 
     init{
         for (c in 0..8){
