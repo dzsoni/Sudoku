@@ -8,6 +8,7 @@ class Cella {
         listOfPossibleNumbers=listOfPossibleNumbers.toSortedSet()
     }
     fun getPossibleNumbers():MutableSet<Int>        = listOfPossibleNumbers.toMutableSet()  // copy
+    fun getPossibleNumbersByRef():MutableSet<Int>   = listOfPossibleNumbers                 // make a reference
     fun setPossibleNumbers(list:MutableSet<Int>){
         listOfPossibleNumbers=list.toMutableSet()
     }
