@@ -1,18 +1,21 @@
 package sudoku
 import sudoku.*
 import java.util.*
+import kotlin.math.*
 
 class SudokuTable () {
     //Sudoku table
     var table = Array<Array<Cella>>(9) { Array<Cella>(9) { Cella() } }
 
     private var colTable = Array<Array<Cella>>(9) { Array<Cella>(9){Cella()}}
-    var blocks = Array<Array<Block3x3>>(3){ Array<Block3x3>(3){Block3x3()}}
+    var blocks = Array<Array<Block3x3>>(3){ Array<Block3x3>(3){ Block3x3() }}
 
     init{
         for (r in 0..8){
             for (c in 0..8){
-                colTable[c][r]=table[r][c]
+                colTable[c][r]=table[r][c] //colTable feltöltése
+                //----------------------------------------------
+                
             }
         }
     }
