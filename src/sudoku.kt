@@ -5,14 +5,8 @@ import java.lang.NullPointerException
 fun main(args: Array<String>) {
     var sT = SudokuTable()
 
-
-    sT.table[0][1].setValue(5)
-
-    sT.getRefToColumn(1).forEach { println(it.getValue().toString())}
-
-    var ccol = sT.getCopyOfColumn(1)
-
-    sT.table[0][1].setValue(8)
-    ccol.forEach {println(it.getValue().toString())}
-
+    sT.table[0][0].setPossibleNumbers(mutableSetOf(3,4,5))
+    var bl = sT.blocks[0][0].block3x3[0][0].getPossibleNumbers()
+    bl.forEach { println(it.toString()) }
+    sT.table[0][0].getPossibleNumbers().forEach { print(it.toString()) }
     }
