@@ -1,12 +1,38 @@
 import sudoku.*
 import java.lang.NullPointerException
+import java.io.BufferedReader
+import java.io.FileReader
+import java.io.IOException
 
 
 fun main(args: Array<String>) {
-    var sT = SudokuTable()
+    var fileReader: BufferedReader? = null
 
-    sT.table[0][0].setPossibleNumbers(mutableSetOf(3,4,5))
-    var bl = sT.blocks[0][0].block3x3[0][0].getPossibleNumbers()
-    bl.forEach { println(it.toString()) }
-    sT.table[0][0].getPossibleNumbers().forEach { print(it.toString()) }
+    try {
+
+        var line: String?
+
+        var fileReader = BufferedReader(FileReader("proba1.txt"))
+
+        // Read the file line by line
+        fileReader.useLines { Charsets.UTF_8, ( println(it)) }
+
+
+        // Integer.parseInt(tokens[CUSTOMER_AGE]
+
+
+        line = fileReader.readLine()
+
+
+    } catch (e: Exception) {
+        println("Reading CSV Error!")
+        e.printStackTrace()
+    } finally {
+        try {
+            fileReader!!.close()
+        } catch (e: IOException) {
+            println("Closing fileReader Error!")
+            e.printStackTrace()
+        }
     }
+}

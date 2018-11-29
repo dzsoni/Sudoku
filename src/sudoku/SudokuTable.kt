@@ -15,7 +15,7 @@ class SudokuTable () {
             for (c in 0..8){
                 colTable[c][r]=table[r][c] //colTable feltöltése
                 //----------------------------------------------
-                
+
             }
         }
     }
