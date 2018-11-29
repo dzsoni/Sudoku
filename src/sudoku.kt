@@ -7,26 +7,17 @@ import java.io.IOException
 
 fun main(args: Array<String>) {
     var fileReader: BufferedReader? = null
+    var list:List<String> = emptyList()
 
     try {
 
-        var line: String?
-
         var fileReader = BufferedReader(FileReader("proba1.txt"))
 
-        // Read the file line by line
-        fileReader.useLines { Charsets.UTF_8, ( println(it)) }
-
-
-        // Integer.parseInt(tokens[CUSTOMER_AGE]
-
-
-        line = fileReader.readLine()
-
+        // Read the first 9 lines
+        list = fileReader.useLines { lines: Sequence<String> -> lines.take(9).toList() }
 
     } catch (e: Exception) {
-        println("Reading CSV Error!")
-        e.printStackTrace()
+        println("Error while reading sudoku file.")
     } finally {
         try {
             fileReader!!.close()
@@ -35,4 +26,5 @@ fun main(args: Array<String>) {
             e.printStackTrace()
         }
     }
+    
 }
