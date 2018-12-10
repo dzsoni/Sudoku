@@ -1,5 +1,7 @@
 package sudoku
 
+import java.lang.Exception
+
 
 class Cella {
     private var listOfPossibleNumbers: MutableSet<Int>  = mutableSetOf(1,2,3,4,5,6,7,8,9) //A cellába mégírható lehetséges számok
@@ -41,9 +43,12 @@ class Cella {
             listOfPossibleNumbers.clear()
             listOfPossibleNumbers.add(value)
         }
-        if(value ==0){
+        else if(value ==0){
             listOfPossibleNumbers.clear()
             listOfPossibleNumbers.addAll(mutableListOf(1,2,3,4,5,6,7,8,9))
+        }
+        else{
+            throw Exception("\nNem megengedett számot akartál a cellába írni.\n")
         }
     }
      fun getValue():Int {
