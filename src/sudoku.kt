@@ -1,6 +1,8 @@
 @file:JvmName("Sudoku")
 
 import org.apache.commons.cli.DefaultParser
+import org.apache.commons.cli.HelpFormatter
+import org.apache.commons.cli.Option
 import org.apache.commons.cli.Options
 import sudoku.SudokuTable
 import java.io.BufferedReader
@@ -15,9 +17,27 @@ fun main(args: Array<String>) {
     //Apache Commons CLI
     var options = Options()
     var parser = DefaultParser()
-    //Make an option -f with filname argument
-    options.addOption("f", true, "Name of the sudoku table file.")
+
+    //Make an option -f --file with "file name" argument
+    options.addOption(Option.builder("f")
+            .longOpt("file")
+            .desc("The name of Sudoku table file.")
+            .hasArg(true)
+            .argName("file name")
+            .build())
+    //Make an option -h --help Help.
+    options.addOption(Option.builder("h")
+            .longOpt("help")
+            .desc("Help")
+            .build())
+
+
     var cmd = parser.parse(options, args)
+    if(cmd.hasOption("h")){
+        var formater = HelpFormatter()
+        formater.printHelp("sudoku.jar","Sodoku solver",options,"",true)
+        System.exit(0)
+    }
 
     if (cmd.hasOption("f")) {
         var fileR: BufferedReader? = null
@@ -42,8 +62,7 @@ fun main(args: Array<String>) {
         }
 
 
-        list.forEachIndexed { row,
-                              s ->
+        list.forEachIndexed { row, s ->
             s.splitToSequence(",", limit = 9).forEachIndexed { col, c ->
                 sT.table[row][col].setValue(c.toInt())
             }
