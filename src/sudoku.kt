@@ -8,6 +8,8 @@ import sudoku.SudokuTable
 import java.io.BufferedReader
 import java.io.File
 
+    const val VERSION_MAJOR: Int = 0
+    const val VERSION_MINOR: Int = 1
 
 fun main(args: Array<String>) {
 
@@ -28,14 +30,23 @@ fun main(args: Array<String>) {
     //Make an option -h --help Help.
     options.addOption(Option.builder("h")
             .longOpt("help")
-            .desc("Help")
+            .desc("Help.")
             .build())
-
+    //Make an option -v --version Version.
+    options.addOption(Option.builder("v")
+            .longOpt("version")
+            .desc("Print version info.")
+            .build())
 
     var cmd = parser.parse(options, args)
     if(cmd.hasOption("h")){
         var formater = HelpFormatter()
         formater.printHelp("sudoku.jar","Sodoku solver",options,"",true)
+        System.exit(0)
+    }
+
+    if(cmd.hasOption("v")){
+        println("Sudoku solver version:"+VERSION_MAJOR.toString()+"."+VERSION_MINOR.toString())
         System.exit(0)
     }
 
@@ -58,7 +69,7 @@ fun main(args: Array<String>) {
             throw Exception("\nÜres sudoku tábla.\n")
         }
         if (list.size != 9) {
-            throw Exception("\nKorrupt sudoku tábla.A sorok száma kevés.\n")
+            throw Exception("Korrupt sudoku tábla.A sorok száma kevés.\n")
         }
 
 
