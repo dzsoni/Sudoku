@@ -5,8 +5,10 @@ import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Option
 import org.apache.commons.cli.Options
 import sudoku.SudokuTable
+import sudoku.Cons
 import java.io.BufferedReader
 import java.io.File
+
 
 
 fun main(args: Array<String>) {
@@ -28,7 +30,7 @@ fun main(args: Array<String>) {
     //Make an option -h --help Help.
     options.addOption(Option.builder("h")
             .longOpt("help")
-            .desc("Help")
+            .desc("Help.")
             .build())
 
 
@@ -58,7 +60,7 @@ fun main(args: Array<String>) {
             throw Exception("\nÜres sudoku tábla.\n")
         }
         if (list.size != 9) {
-            throw Exception("\nKorrupt sudoku tábla.A sorok száma kevés.\n")
+            throw Exception(sudoku.Cons.+"Korrupt sudoku tábla.A sorok száma kevés.\n")
         }
 
 
