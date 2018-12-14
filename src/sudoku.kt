@@ -5,15 +5,19 @@ import org.apache.commons.cli.HelpFormatter
 import org.apache.commons.cli.Option
 import org.apache.commons.cli.Options
 import sudoku.SudokuTable
-import sudoku.Cons
 import java.io.BufferedReader
 import java.io.File
 
+//--------------------------------------------------
+const  val VERSION_MAJOR: Int = 0
+const  val VERSION_MINOR: Int = 1
 
+val NEW_LINE = System.getProperty("line.separator")
+//--------------------------------------------------
 
 fun main(args: Array<String>) {
 
-    var list: List<String> = emptyList()
+    var list :List<String>? = emptyList()
     var sT: SudokuTable = SudokuTable()
 
     //Apache Commons CLI
@@ -54,13 +58,14 @@ fun main(args: Array<String>) {
             if (fileR != null) {
                 fileR.close()
             }
+            throw Exception ()
         }
 
         if (list.firstOrNull() == null) {
-            throw Exception("\nÜres sudoku tábla.\n")
+            throw Exception(NEW_LINE+"Üres sudoku tábla."+ NEW_LINE)
         }
         if (list.size != 9) {
-            throw Exception(sudoku.Cons.+"Korrupt sudoku tábla.A sorok száma kevés.\n")
+            throw Exception(NEW_LINE+"Korrupt sudoku tábla.A sorok száma kevés."+NEW_LINE)
         }
 
 
@@ -71,7 +76,7 @@ fun main(args: Array<String>) {
         }
 
     } else {
-        throw Exception("\nAdj meg egy file nevet.\n")
+        throw Exception(NEW_LINE+"Adj meg egy file nevet."+ NEW_LINE)
     }
 
 
