@@ -1,6 +1,6 @@
 package sudoku
 
-import java.lang.Exception
+import NEW_LINE
 
 
 class Cella {
@@ -48,7 +48,7 @@ class Cella {
             listOfPossibleNumbers.addAll(mutableListOf(1,2,3,4,5,6,7,8,9))
         }
         else{
-            throw Exception("\nNem megengedett számot akartál a cellába írni.\n")
+            throw Exception(NEW_LINE+"Nem megengedett számot akartál a cellába írni."+NEW_LINE)
         }
     }
      fun getValue():Int {

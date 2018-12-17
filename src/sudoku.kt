@@ -8,9 +8,11 @@ import sudoku.SudokuTable
 import java.io.BufferedReader
 import java.io.File
 
+    //----CONSTANTS-----------------
     const val VERSION_MAJOR: Int = 0
     const val VERSION_MINOR: Int = 1
     var NEW_LINE = System.getProperty("line.separator")
+    //------------------------------
 
 fun main(args: Array<String>) {
 
