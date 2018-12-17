@@ -1,7 +1,4 @@
 package sudoku
-import sudoku.*
-import java.util.*
-import kotlin.math.*
 
 class SudokuTable () {
     //Sudoku table
@@ -15,7 +12,7 @@ class SudokuTable () {
             for (c in 0..8){
                 colTable[c][r]=table[r][c] //colTable feltöltése
                 //----------------------------------------------
-
+                //TODO Anti megcsinálja a blocks array hivatkozást a table-re
             }
         }
     }
