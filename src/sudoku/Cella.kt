@@ -4,7 +4,7 @@ import NEW_LINE
 
 
 class Cella {
-    private var listOfPossibleNumbers: MutableSet<Int>  = mutableSetOf(1,2,3,4,5,6,7,8,9) //A cellába mégírható lehetséges számok
+    private var listOfPossibleNumbers: MutableSet<Int>  = mutableSetOf(1,2,3,4,5,6,7,8,9) //A cellába még írható lehetséges számok
 
     fun sortPossibleNumners() {
         listOfPossibleNumbers=listOfPossibleNumbers.toSortedSet()
