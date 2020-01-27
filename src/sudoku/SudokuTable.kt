@@ -4,7 +4,7 @@ class SudokuTable () {
     //Sudoku table
     var table = Array<Array<Cella>>(9) { Array<Cella>(9) { Cella() } }
 
-    private var colTable = Array(9) { Array<Cella>(9){Cella()}}
+    private var colTable= Array<Array<Cella>>(9) { Array<Cella>(9){Cella()}}
     var blocks = Array<Array<Block3x3>>(3){ Array<Block3x3>(3){ Block3x3() }}
 
     init{
